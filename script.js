@@ -1,8 +1,4 @@
-let tg = window.Telegram.WebApp;
-tg.expand();
-
-function buySub(plan) {
-    alert("Кнопка нажата! Тариф: " + plan); // проверка
-    tg.sendData(plan); // отправляем данные боту
-}
-
+@dp.message(F.web_app_data)
+async def get_webapp(msg: Message):
+    plan = msg.web_app_data.data
+    await msg.answer(f"Ты выбрал тариф: {plan}")
